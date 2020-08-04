@@ -1,24 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Button from "./components/Button.js";
 
 function App() {
+  const [counter, modifyCounter] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      {counter}
+      <Button
+        float={true}
+        size={"large"}
+        wavesEffect={true}
+        waveColor={"light"}
+        color={"blue"}
+      >
+        <i
+          onClick={() => {
+            let tempCounter = counter;
+            tempCounter++;
+            modifyCounter(tempCounter);
+          }}
+          className="material-icons"
         >
-          Learn React
-        </a>
-      </header>
+          add
+        </i>
+      </Button>
+
+      <Button
+        float={true}
+        size={"large"}
+        wavesEffect={true}
+        waveColor={"light"}
+        color={"blue"}
+      >
+        <i
+          onClick={() => {
+            let tempCounter = counter;
+            tempCounter--;
+            modifyCounter(tempCounter);
+          }}
+          className="material-icons"
+        >
+          remove
+        </i>
+      </Button>
     </div>
   );
 }
